@@ -49,7 +49,7 @@ class Autoencoder:
         self.model.fit(x_train, 
                        x_train,
                        batch_size=batch_size,
-                       epoch=num_epochs,
+                       epochs=num_epochs,
                        shuffle=True)
 
     def _build(self):
