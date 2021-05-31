@@ -1,3 +1,6 @@
+import os
+import pickle
+
 from tensorflow.keras import Model
 from tensorflow.keras.layers import Input, Conv2D, ReLU, BatchNormalization, \
     Flatten, Dense, Reshape, Conv2DTranspose, Activation
@@ -51,6 +54,31 @@ class Autoencoder:
                        batch_size=batch_size,
                        epochs=num_epochs,
                        shuffle=True)
+
+    def save(self, save_folder="."):
+        self._create_folder_if_it_doesnt_exist(save_folder)
+        self._save_parameters(save_folder)
+        self._save_weights(save_folder)
+
+    def _create_folder_if_it_doesnt_exist(self, folder):
+        if not os.path.exists(folder):
+            os.makedirs(folder)
+
+    def _save_parameters(self, save_folder):
+        parameters = [
+            self.input_shape, 
+            self.conv_filters,
+            self.conv_kernels,
+            self.conv_strides,
+            self.latent_space_dim
+        ]
+        save_path = os.path.join(save_folder, "parameters.pkl")
+        with open(save_path, "wb") as f:
+            pickle.dump(parameters, f)
+
+    def _save_weights(self, save_folder):
+        save_path = os.path.join(save_folder, "weights.h5")
+        self.model.save_weights(save_path)
 
     def _build(self):
         self._build_encoder()
