@@ -3,7 +3,7 @@ from tensorflow.keras.layers import Input, Conv2D, ReLU, BatchNormalization, \
     Flatten, Dense, Reshape, Conv2DTranspose, Activation
 from tensorflow.keras import backend as K
 from tensorflow.keras.optimizer import Adam
-from tensorflow.keras.losses import MeanSquaredError()
+from tensorflow.keras.losses import MeanSquaredError
 import numpy as np
 
 
