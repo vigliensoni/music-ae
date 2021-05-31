@@ -5,7 +5,7 @@ from autoencoder import Autoencoder
 
 
 LEARNING_RATE = 0.0005
-BATCH_SIZE = 1
+BATCH_SIZE = 32
 EPOCHS = 20
 
 
