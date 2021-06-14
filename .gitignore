@@ -139,3 +139,4 @@ cython_debug/
 
 # Folders
 FSDD/
+.DS_Store
