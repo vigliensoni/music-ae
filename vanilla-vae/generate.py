@@ -47,7 +47,7 @@ def save_signals(signals, save_dir, sample_rate=22050):
         sf.write(save_path, signal, sample_rate)
 
 
-if __name__ == "main":
+if __name__ == "__main__":
     # initialize sound generator
     vae = VAE.load("model")
     sound_generator = SoundGenerator(vae, HOP_LENGTH)
