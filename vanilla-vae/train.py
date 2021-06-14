@@ -1,4 +1,5 @@
 import os
+import sys
 
 import numpy as np
 
@@ -38,6 +39,9 @@ def train(x_train, learning_rate, batch_size, epochs):
 
 if __name__ == "__main__":
     
+    if sys.argv[1:]:
+        SPECTROGRAMS_PATH = sys.argv[1:2][0]
+    print(SPECTROGRAMS_PATH)
     x_train = load_fsdd(SPECTROGRAMS_PATH)
     autoencoder = train(x_train, LEARNING_RATE, BATCH_SIZE, EPOCHS)
     autoencoder.save("model")
